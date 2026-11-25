@@ -30,3 +30,8 @@ def wants_tool(response):
         return True
     else:
         return False
+
+
+def assistant_message(response):
+    message = response.get('content', [])
+    return {'role': 'assistant', 'content': message}
