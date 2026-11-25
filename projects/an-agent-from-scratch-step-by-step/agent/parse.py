@@ -22,3 +22,11 @@ def tool_uses(response):
             result.append(block)
         
     return result
+
+
+def wants_tool(response):
+    wants = response.get("stop_reason")
+    if wants == 'tool_use':
+        return True
+    else:
+        return False
