@@ -12,3 +12,13 @@ def text_of(response):
     result = text_blocks(response)
     seperator = '\n'.join(result)
     return seperator.strip()
+
+
+def tool_uses(response):
+    result = []
+    content = response.get("content", [])
+    for block in content:
+        if block['type'] == "tool_use":
+            result.append(block)
+        
+    return result
